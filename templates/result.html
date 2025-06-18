@@ -7,12 +7,24 @@
     <title>The Result</title>
 </head>
 <body>
-    <div class="d-flex justify-content-center">
-        <form action="/">
-            <p class="fs-1">Differentiated Thyroid Cancer Recurrence</p>
-            <p class="align-center">The Result: {{decision}} </p>
-            <input class="btn btn-primary" type="submit" value="Back">
-        </form>
+    <p class="fs-1 text-center">Differentiated Thyroid Cancer Recurrence</p>
+    <div class="d-flex flex-column align-items-center">
+        <div class="card text-white {% if decision == 'Yes' %}bg-danger{% else %}bg-success{% endif %}" style="max-width: 30rem;">
+            <div class="card-header fs-4 text-center">
+                The Result is:
+            </div>
+            <div class="card-body text-center">
+                <h2 class="card-title">{{ decision }}</h2>
+                <p class="card-text">
+                    {% if decision == 'Yes' %}
+                        There is a <strong>risk of recurrence</strong>. Please consult your doctor for further evaluation.
+                    {% else %}
+                        <strong>No recurrence</strong> predicted. Keep following up regularly to stay safe.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <a href="/" class="btn btn-primary mt-2 w-25">Back</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
